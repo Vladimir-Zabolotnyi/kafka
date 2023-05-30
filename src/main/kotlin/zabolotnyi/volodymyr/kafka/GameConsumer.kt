@@ -14,5 +14,4 @@ class GameConsumer(
     )
     fun consume(message: Game) =
         gameRepository.save(message);
-
 }
