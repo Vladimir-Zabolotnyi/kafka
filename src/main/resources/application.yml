@@ -1,0 +1,29 @@
+server:
+  port: 8181
+
+spring:
+  application.name: kafka
+  kafka:
+    bootstrap-servers: localhost:9092,localhost:9092
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties.spring.json.trusted.packages: '*'
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.xml
+  datasource:
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    url: jdbc:hsqldb:file:./target/hsqldb/${spring.application.name};ifexists=false;hsqldb.lock_file=false
+    username: sa
+    password:
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.HSQLDialect
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
