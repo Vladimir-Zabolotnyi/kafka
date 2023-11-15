@@ -16,5 +16,5 @@ class GameController(
 
     @GetMapping("/games/get")
     fun get() =
-        gameRepository.findAll();
+        gameRepository.findAll()
 }

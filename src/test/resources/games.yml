@@ -1,0 +1,5 @@
+game:
+  - id: 1
+    name: Game1
+  - id: 2
+    name: Game2

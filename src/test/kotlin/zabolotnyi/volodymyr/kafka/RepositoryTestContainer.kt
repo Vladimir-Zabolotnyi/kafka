@@ -21,8 +21,8 @@ class RepositoryTestContainer @Autowired constructor(
         @Container
         val mySQLContainer = MySQLContainer(DockerImageName.parse("mysql:8.0-debian"))
 
-        @DynamicPropertySource
         @JvmStatic
+        @DynamicPropertySource
         fun kafkaProperties(registry: DynamicPropertyRegistry) {
             registry.add("spring.datasource.url") { mySQLContainer.jdbcUrl }
             registry.add("spring.datasource.driverClassName") { mySQLContainer.driverClassName }
@@ -34,7 +34,7 @@ class RepositoryTestContainer @Autowired constructor(
     @Test
     fun shouldSaveGame() {
         // given
-        val message = Game(name="name")
+        val message = Game(name = "name")
 
         // when
         repository.save(Game(name = "name"))

@@ -13,4 +13,3 @@ data class Game(
 
     val name: String,
 )
-

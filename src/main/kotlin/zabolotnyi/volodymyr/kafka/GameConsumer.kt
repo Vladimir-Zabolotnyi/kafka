@@ -13,5 +13,5 @@ class GameConsumer(
         groupId = "game-group-id",
     )
     fun consume(message: Game) =
-        gameRepository.save(message);
+        gameRepository.save(message)
 }
